@@ -13,6 +13,7 @@
         {{ friend.email }}
       </li>
     </ul>
+    <button @click="$emit('delete-friend', id)" >Delete</button>
   </li>
 </template>
 
@@ -38,16 +39,11 @@ export default {
         return false;
       }
     },
+    'delete-friend': null,
   },
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "0123 45678 90",
-        email: "manuel@localhost.com",
-      },
     };
   },
   methods: {
@@ -56,7 +52,7 @@ export default {
     },
     toggleFav() {
       this.$emit('toggle-favorite', this.id)
-    }
+    },
   }
 };
 </script>

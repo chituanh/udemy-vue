@@ -12,6 +12,7 @@
         :name="friend.name"
         :isFavorite="friend.isFav"
         @toggle-favorite="toggleFavStatus" 
+        @delete-friend="deleteFriend"
       ></FriendContact>
     </ul>
   </section>
@@ -54,6 +55,9 @@ export default {
           email: enterEmail,
           isFav: false,
         },)
+    },
+    deleteFriend(id) {
+      this.friends = this.friends.filter((friend) => friend.id !== id);
     }
   },
   components: { FriendContact, NewFriend },
